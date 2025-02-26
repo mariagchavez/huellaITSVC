@@ -41,11 +41,14 @@
     text-align: center;
 }
 .logoitsvc{
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
 }
 .inputsesion{
-    width: 30%;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
     align-items: center;
 }
 .inputB{
@@ -73,4 +76,50 @@
     width: 200px;
     height: 200px;
     line-height: 60px;
+}
+.logoitsvcIzq{
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+}
+.eventos{
+    width: 200%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+@media (max-width: 1024px) {
+    .eventos {
+        width: 100%;
+        height: auto;
+    }
+}
+.left-section {
+    flex: 2;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.right-section {
+    flex: 1;
+    background: url('../../assets/img/itsvc1.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100%;
+}
+.huellaimg {
+    width: 200px;
+}
+.inicioHuella{
+    height: 90vh;
+    display: flex;
+}
+.huellaRegistro{
+    height: 55vh;
+    display: flex;
 }

@@ -19,62 +19,72 @@
 
     <div class="container mt-4">
         <h4 class="fw-bold etiquetado">Registro de Usuarios</h4>
-        <div class="container">
-            <form action="" method="" class="form mt-5">
-                <div class="mb-4 row">
-                    <i class="col-sm-1 fa-regular fa-id-card"></i>
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matricula">
-                    </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <a href=""><img class="huellaRegistro" src="../../assets/img/huellaRegistro.webp" alt=""></a>
                 </div>
-                <div class="mb-4 row">
-                    <i class="col-sm-1 fa-solid fa-user"></i>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="nombre" nome="nombre" placeholder="Nombre Completo">
-                    </div>
+                <div class="col-md-6 mt-3">
+                    <form action="" method="" class="form mt-5">
+                        <div class="mb-4 row">
+                            <i class="col-sm-1 fa-regular fa-id-card"></i>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control inputB" id="matricula" name="matricula" placeholder="Matricula">
+                            </div>
+                        </div>
+                        <div class="mb-4 row">
+                            <i class="col-sm-1 fa-solid fa-user"></i>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control inputB" id="nombre" nome="nombre" placeholder="Nombre Completo">
+                            </div>
+                        </div>
+                        <div class="mb-4 row">
+                            <i class="col-sm-1 fa-solid fa-envelope"></i>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control inputB" id="correo" nome="correo" placeholder="Correo Institucional">
+                            </div>
+                        </div>
+                        <div class="mb-4 row">
+                            <i class="col-sm-1 fa-solid fa-venus-mars"></i>
+                            <div class="col-sm-10">
+                                <select class="form-select inputB" id="sexo" name="sexo">
+                                    <option selected value disabled="">Sexo</option>
+                                    <option value="H">Hombre</option>
+                                    <option value="M">Mujer</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-4 row">
+                            <i class="col-sm-1 fa-solid fa-users"></i>
+                            <div class="col-sm-10">
+                                <select class="form-select inputB" id="cargo" name="cargo">
+                                    <option selected value disabled="">Cargo</option>
+                                    <option value="Administrador">Administrador</option>
+                                    <option value="Profesor">Profesor</option>
+                                    <option value="Alumno">Alumno</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-4 row">
+                            <i class="col-sm-1 fa-solid fa-gears"></i>
+                            <div class="col-sm-10">
+                                <select class="form-select inputB" id="carrera" name="carrera">
+                                    <option selected value disabled="">Carrera</option>
+                                    <option value="Administrador">IGEO</option>
+                                    <option value="Profesor">IGEM</option>
+                                    <option value="Alumno">ISIC</option>
+                                    <option value="Alumno">IFOR</option>
+                                    <option value="Alumno">IALI</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button type="submit" class="mt-5 btn btn-success">Guardar</button>
+                            <button type="submit" class="mt-5 btn btn-custom">Carcelar</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="mb-4 row">
-                    <i class="col-sm-1 fa-solid fa-envelope"></i>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="correo" nome="correo" placeholder="Correo Institucional">
-                    </div>
-                </div>
-                <div class="mb-4 row">
-                    <i class="col-sm-1 fa-solid fa-venus-mars"></i>
-                    <div class="col-sm-4">
-                        <select class="form-select" id="sexo" name="sexo">
-                            <option selected value disabled="">Sexo</option>
-                            <option value="H">Hombre</option>
-                            <option value="M">Mujer</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="mb-4 row">
-                    <i class="col-sm-1 fa-solid fa-users"></i>
-                    <div class="col-sm-4">
-                        <select class="form-select" id="cargo" name="cargo">
-                            <option selected value disabled="">Cargo</option>
-                            <option value="Administrador">Administrador</option>
-                            <option value="Profesor">Profesor</option>
-                            <option value="Alumno">Alumno</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="mb-4 row">
-                    <i class="col-sm-1 fa-solid fa-gears"></i>
-                    <div class="col-sm-4">
-                        <select class="form-select" id="carrera" name="carrera">
-                            <option selected value disabled="">Carrera</option>
-                            <option value="Administrador">IGEO</option>
-                            <option value="Profesor">IGEM</option>
-                            <option value="Alumno">ISIC</option>
-                            <option value="Alumno">IFOR</option>
-                            <option value="Alumno">IALI</option>
-                        </select>
-                    </div>
-                </div>
-                <button type="submit" class="mt-5 btn btn-success">Guardar</button>
-            </form>
+            </div>
         </div>
     </div>
 </body>
