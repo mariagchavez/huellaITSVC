@@ -27,15 +27,6 @@
 .etiquetado{
     color: #174D4D;
 }
-.search-bar {
-    border-bottom: 1px solid #ced4da;
-    padding-bottom: 5px;
-    display: flex;
-    align-items: center;
-}
-.search-bar input {
-    border: none;
-}
 .sesion{
     color: #174D4D;
     text-align: center;
@@ -55,8 +46,8 @@
     border: 3px solid #174D4D;
 }
 .recuadro {
-    width: 240px;
-    height: 300px;
+    width: 300px;
+    height: 350px;
     margin: 20px;
     padding: 20px;
     background-color: #ffffff;
@@ -67,10 +58,32 @@
     font-weight: bold;
     font-size: 150%;
     color: #174D4D;
+    margin-left: 70px;
     transition: 0.5s ease;
 }
 .recuadro:hover {
     transform: scale(1.1);
+    background-color: #DFEEEE;
+}
+
+.recuadroAsist {
+    width: 400px;
+    height: 350px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 4px solid #174D4D;
+    text-align: center;
+    line-height: 60px;
+    font-weight: bold;
+    font-size: 150%;
+    color: #174D4D;
+    margin-left: 100px;
+    transition: 0.5s ease;
+}
+.recuadroAsist:hover {
+    transform: scale(1.1);
+    background-color: #DFEEEE;
 }
 .imgmenu{
     width: 200px;
@@ -84,11 +97,11 @@
     margin: 0 auto;
 }
 .eventos{
-    width: 200%;
+    width: 300%;
     max-width: 400px;
     height: auto;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 60px;
     border-radius: 20px;
 }
 @media (max-width: 1024px) {
@@ -113,13 +126,15 @@
     height: 100%;
 }
 .huellaimg {
-    width: 200px;
+    width: 250px;
 }
 .inicioHuella{
     height: 90vh;
     display: flex;
 }
 .huellaRegistro{
-    height: 55vh;
+    height: 40vh;
     display: flex;
+    margin-top: 50px;
+    margin-left: 100px
 }

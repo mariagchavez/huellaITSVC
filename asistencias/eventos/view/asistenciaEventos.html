@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.css">
     <!--Estilos personales-->
-    <link rel="stylesheet" href="../../assets/css/css.css">
+    <link rel="stylesheet" href="../../../assets/css/css.css">
 </head>
 <body>
     <div class="container-fluid header d-flex justify-content-between align-items-center">
@@ -21,37 +21,39 @@
     </div>
 
     <div class="container mt-4">
-        <h4 class="fw-bold etiquetado"><i class="fas fa-user"></i> Usuarios</h4>
+        <h4 class="fw-bold etiquetado"><i class="fas fa-user"></i> Asistencias de Eventos</h4>
         <div class="d-flex justify-content-end">
             <div class="">
                 <button class="btn btn-secondary" onclick="window.history.back();">Regresar</button>
             </div>
         </div>
-        <div class="table-container mt-5">
-            <table id="dataTableUsuarios" class="table table-striped" style="width:100%">
+        <div class="table-container mt-3">
+            <table id="dataTableEventos" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>C. Identificacion</th>
                         <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Sexo</th>
-                        <th>Cargo</th>
+                        <th>Usuario</th>
+                        <th>Fecha</th>
+                        <th>H. Ingreso Evento</th>
+                        <th>H. Ingreso</th>
+                        <th>H. Salida Evento</th>
                         <th>Carrera</th>
                     </tr>
                 </thead>
+
                 <tbody>
                 </tbody>
             </table>
         </div>
         <div class="action-buttons">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modalguardar"><i class="fa-solid fa-user-plus"></i></button>
-            <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+            <button class="btn btn-success"><i class="fa-solid fa-download"></i></button>
+            <button class="btn btn-info"><i class="fa-solid fa-print"></i></button>
         </div>
     </div>
 
     <!--Modal para Registar a los Usuarios-->
-    <div class="modal fade" id="Modalguardar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="ModalguardarEventos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -69,7 +71,7 @@
                                     <div class="mb-3 row">
                                         <i class="col-sm-1 fa-regular fa-id-card"></i>
                                         <div class="col-sm-10">
-                                          <input type="text" class="form-control inputB" id="clave_identificacion" name="clave_identificacion" placeholder="Clave identificacion">
+                                          <input type="text" class="form-control inputB" id="matricula" name="matricula" placeholder="Matricula">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
@@ -150,6 +152,6 @@
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.js"></script>
     <!--Script personales-->
-    <script src="../../assets/dataTables/dataTables.js"></script>
+    <script src="../../../assets/dataTables/dataTables.js"></script>
 </body>
 </html>
