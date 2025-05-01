@@ -20,20 +20,21 @@
         </div>
 
         <div class="container mt-5 inputsesion">
-            <form action="" >
+            <form method="POST" >
                 <div class="mb-3 row">
                     <div class="col-12">
-                      <input type="text" class="form-control inputB" id="usuario" name="usuario" placeholder="Usuario">
+                      <input type="text" class="form-control inputB validar" id="usuario" name="usuario" placeholder="Usuario">
+                      <small id="usuarioerror" class="error"></small>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <div class="col-12">
-                      <input type="password" class="form-control inputB" id="contrasena" name="contrasena" placeholder="Contraseña">
+                      <input type="password" class="form-control inputB validar" id="contrasena" name="contrasena" placeholder="Contraseña">
                     </div>
                 </div>
                 <div class="mb-3 row mt-4 justify-content-center">
                     <div class="col-12 text-center">
-                        <a href="#" type="submit" class="btn btn-custom">Ingresar</a>
+                        <button type="button" class="btn btn-custom" id="Login">Ingresar</button>
                     </div>
                 </div>
                 <div class="mb-3 row mt-4 justify-content-center">
@@ -44,8 +45,6 @@
             </form>
         </div>
     </div>  
-
-
     <!-- Modal para recuperar contraseña -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -68,12 +67,15 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-custom">Enviar</button>
+                    <button type="submit" class="btn btn-custom" id="iniciosesion">Enviar</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <script src="../../assets/jquery/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../js/login.js"></script>
 </body>
 </html>

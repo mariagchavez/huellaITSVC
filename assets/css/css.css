@@ -1,3 +1,14 @@
+/*Error de verificaciones de inputs*/
+.error {
+    color: red;
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 0; 
+    width: 100%; 
+    display: block;
+}
+
 .header {
     background-color: #DFEEEE;
     padding: 15px;
@@ -43,7 +54,7 @@
     align-items: center;
 }
 .inputB{
-    border: 3px solid #174D4D;
+    border: 1px solid #174D4D;
 }
 .recuadro {
     width: 300px;
@@ -137,4 +148,13 @@
     display: flex;
     margin-top: 50px;
     margin-left: 100px
+}
+.error {
+    color: red;
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 0; 
+    width: 100%; 
+    display: block;
 }

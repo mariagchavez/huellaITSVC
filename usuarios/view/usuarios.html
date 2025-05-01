@@ -20,39 +20,9 @@
         </div>
     </div>
 
-    <div class="container mt-4">
-        <h4 class="fw-bold etiquetado"><i class="fas fa-user"></i> Usuarios</h4>
-        <div class="d-flex justify-content-end">
-            <div class="">
-                <button class="btn btn-secondary" onclick="window.history.back();">Regresar</button>
-            </div>
-        </div>
-        <div class="table-container mt-5">
-            <table id="dataTableUsuarios" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>C. Identificacion</th>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Sexo</th>
-                        <th>Cargo</th>
-                        <th>Carrera</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div class="action-buttons">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modalguardar"><i class="fa-solid fa-user-plus"></i></button>
-            <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
-            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-        </div>
-    </div>
-
     <!--Modal para Registar a los Usuarios-->
-    <div class="modal fade" id="Modalguardar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+    <div class="modal fade" id="guardarUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="fw-bold etiquetado"><i class="fas fa-user"></i> Registro de Usuarios</h5>
@@ -61,72 +31,70 @@
                 <div class="modal-body">
                     <div class="container mt-3">
                         <div class="row">
-                            <div class="col-md-6 text-center">
-                                <a href="#"><img class="huellaRegistro" src="../../assets/img/huellaRegistro.webp" alt=""></a>
-                            </div>
-                            <div class="col-md-6">
-                                <form action="" method="" class="form">
+                            <div class="col-md-12">
+                                <form method="POST" class="form">
                                     <div class="mb-3 row">
                                         <i class="col-sm-1 fa-regular fa-id-card"></i>
-                                        <div class="col-sm-10">
-                                          <input type="text" class="form-control inputB" id="clave_identificacion" name="clave_identificacion" placeholder="Clave identificacion">
+                                        <label class="col-sm-3" for="">Clave Identificacion: </label>
+                                        <div class="col-sm-8">
+                                          <input type="text" class="form-control inputB regex" id="clave_identificacion" name="clave_identificacion" placeholder="00VC0000">
+                                          <small id="clave_identificacionError" class="error"></small>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <i class="col-sm-1 fa-solid fa-user"></i>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control inputB" id="nombre" nome="nombre" placeholder="Nombre">
+                                        <label class="col-sm-3" for="">Nombre: </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control inputB" id="nombre" nome="nombre">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <i class="col-sm-1 fa-solid fa-user"></i>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control inputB" id="apellido_paterno" nome="apellido_paterno" placeholder="Apellido Paterno">
+                                        <label class="col-sm-3" for="">Apellido Paterno: </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control inputB" id="apellido_paterno" nome="apellido_paterno" >
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <i class="col-sm-1 fa-solid fa-user"></i>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control inputB" id="apellido_materno" nome="apellido_materno" placeholder="Apellido Materno">
+                                        <label class="col-sm-3" for="">Apellido Materno: </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control inputB" id="apellido_materno" nome="apellido_materno">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <i class="col-sm-1 fa-solid fa-envelope"></i>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control inputB" id="correo" nome="correo" placeholder="Correo Institucional">
+                                        <label class="col-sm-3" for="">Correo: </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control inputB" id="correo" nome="correo" placeholder="usuario.tec@itsvc.edu.mx">
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <i class="col-sm-1 fa-solid fa-venus-mars"></i>
-                                        <div class="col-sm-10">
+                                        <label class="col-sm-3" for="">Sexo: </label>
+                                        <div class="col-sm-8">
                                             <select class="form-select inputB" id="sexo" name="sexo">
                                                 <option selected value disabled="">Sexo</option>
-                                                <option value="H">Hombre</option>
-                                                <option value="M">Mujer</option>
+                                                <option value="Hombre">Hombre</option>
+                                                <option value="Mujer">Mujer</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <i class="col-sm-1 fa-solid fa-users"></i>
-                                        <div class="col-sm-10">
+                                        <label class="col-sm-3" for="">Cargo: </label>
+                                        <div class="col-sm-8">
                                             <select class="form-select inputB" id="cargo" name="cargo">
                                                 <option selected value disabled="">Cargo</option>
-                                                <option value="Administrativos">Administrativos</option>
-                                                <option value="Profesor">Profesor</option>
-                                                <option value="Alumno">Alumno</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="mb-3 row">
                                         <i class="col-sm-1 fa-solid fa-gears"></i>
-                                        <div class="col-sm-10">
+                                        <label class="col-sm-3" for="">Carrera: </label>
+                                        <div class="col-sm-8">
                                             <select class="form-select inputB" id="carrera" name="carrera">
-                                                <option selected value disabled="">Carrera</option>
-                                                <option value="Administrador">IGEO</option>
-                                                <option value="Profesor">IGEM</option>
-                                                <option value="Alumno">ISIC</option>
-                                                <option value="Alumno">IFOR</option>
-                                                <option value="Alumno">IALI</option>
+                                                <option selected value="" disabled="">ITSVC</option>
                                             </select>
                                         </div>
                                     </div>
@@ -137,19 +105,141 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-custom">Guardar</button>
+                    <button type="submit" class="btn btn-custom" id="guardar">Guardar</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <div class="container mt-4">
+        <h4 class="fw-bold etiquetado"><i class="fas fa-user"></i> Usuarios</h4>
+        <div class="d-flex justify-content-end">
+            <div class="">
+                <button class="btn btn-secondary" onclick="window.history.back();">Regresar</button>
+            </div>
+        </div>
+        <div class="table-container mt-5">
+            <table id="dataTableUsuarios" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>C. Identificacion</th>
+                        <th>Nombre</th>
+                        <th>Ap. Paterno</th>
+                        <th>Ap. Materno</th>
+                        <th>Correo</th>
+                        <th>Sexo</th>
+                        <th>Cargo</th>
+                        <th>Carrera</th>
+                        <th colspan="2">Acciones</th>
+                        <th>Huella</th>
+                    </tr>
+                </thead>
+                <tbody id="mostrar">
+                </tbody>
+            </table>
+        </div>
+        <div class="action-buttons">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#guardarUser"><i class="fa-solid fa-user-plus"></i></button>
+        </div>
+    </div>
+
+    <!-- Modal Actualizar-->
+    <div class="modal fade" id="modalActualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar datos de usuarios</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <form method="POST" class="form">
+                        <div class="mb-3 row">
+                            <i class="col-sm-1 fa-regular fa-id-card"></i>
+                            <label class="col-sm-3" for="">Clave Identificacion: </label>
+                            <div class="col-sm-8">
+                              <input type="text" class="form-control inputB" id="clave_identificacionAct" name="clave_identificacionAct" placeholder="Clave identificacion">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <i class="col-sm-1 fa-solid fa-user"></i>
+                            <label class="col-sm-3" for="">Nombre: </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control inputB" id="nombreAct" nome="nombreAct" placeholder="Nombre">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <i class="col-sm-1 fa-solid fa-user"></i>
+                            <label class="col-sm-3" for="">Apellido Paterno: </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control inputB" id="apellido_paternoAct" nome="apellido_paternoAct" placeholder="Apellido Paterno">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <i class="col-sm-1 fa-solid fa-user"></i>
+                            <label class="col-sm-3" for="">Apellido Materno: </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control inputB" id="apellido_maternoAct" nome="apellido_maternoAct" placeholder="Apellido Materno">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <i class="col-sm-1 fa-solid fa-envelope"></i>
+                            <label class="col-sm-3" for="">Correo: </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control inputB" id="correoAct" nome="correoAct" placeholder="Correo Institucional">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <i class="col-sm-1 fa-solid fa-venus-mars"></i>
+                            <label class="col-sm-3" for="">Sexo: </label>
+                            <div class="col-sm-8">
+                                <select class="form-select inputB" id="sexoAct" name="sexoAct">
+                                    <option selected value disabled="">Sexo</option>
+                                    <option value="Hombre">Hombre</option>
+                                    <option value="Mujer">Mujer</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <i class="col-sm-1 fa-solid fa-users"></i>
+                            <label class="col-sm-3" for="">Cargo: </label>
+                            <div class="col-sm-8">
+                                <select class="form-select inputB" id="cargoAct" name="cargoAct">
+                                    <option selected value disabled="">Cargo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <i class="col-sm-1 fa-solid fa-gears"></i>
+                            <label class="col-sm-3" for="">Carrera: </label>
+                            <div class="col-sm-8">
+                                <select class="form-select inputB" id="carreraAct" name="carreraAct">
+                                    <option selected value="" disabled="">Carrera</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="guardarActualizar">Actualizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+
+    <script src="../../assets/jquery/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!--Scripst para el dataTable-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.js"></script>
     <!--Script personales-->
-    <script src="../../assets/dataTables/dataTables.js"></script>
+    <script type="module" src="../js/usuarios.js"></script>
 </body>
 </html>
