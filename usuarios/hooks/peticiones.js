@@ -10,7 +10,7 @@ $.ajax({
     success:function(respuesta){
         if(respuesta.estado){
             respuesta.Carreras.forEach(carreras => {
-                $('#carrera, #carreraAct').append(`<option value="${carreras.clave_carrera}">${carreras.descripcion}</option>`);
+                $('#carrera').append(`<option value="${carreras.clave_carrera}">${carreras.descripcion}</option>`);
             });
         }else {
             mesajes(respuesta,false);
@@ -21,6 +21,27 @@ $.ajax({
         mesajes(respuesta,true);
     }
 })};
+
+export const mostrarCarrerasAct = () =>{
+    $.ajax({
+        url: "../controller/usuariosController.php",
+        method: "POST",
+        data: {peticion: "All_CarrerasAct"},
+        dataType: "json",
+        success:function(respuesta){
+            if(respuesta.estado){
+                respuesta.Carreras.forEach(carreras => {
+                    $('#carreraAct').append(`<option value="${carreras.clave_carrera}">${carreras.descripcion}</option>`);
+                });
+            }else {
+                mesajes(respuesta,false);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error("Error en la solicitud AJAX:", error);
+            mesajes(respuesta,true);
+        }
+    })};
 
 export const mostrarCargos = () =>{
     $.ajax({

@@ -1,21 +1,53 @@
-import { mostrarCarreras, mostrarCargos, insertarUsuario, mostrarDatosTabla, actualizarUsuarios, eliminarUsuario} from "../hooks/peticiones.js";
+import { mostrarCarreras, mostrarCargos, insertarUsuario, mostrarDatosTabla, actualizarUsuarios, eliminarUsuario, mostrarCarrerasAct} from "../hooks/peticiones.js";
 import { getValuesInsertarUser, llenarInputUpdate, getValuesUpdateUsuarios} from "../hooks/getValues.js";
-import { ValidarClaveIdentificacion} from "../hooks/regex.js"
+import { ValidarClaveIdentificacion, ValidadNombreCompleto, ValidarCorreo, ValidadSelect, ValidarBtnInsert, ValidarCargo, ValidarBtnActualizar} from "../hooks/regex.js"
 
 $(document).ready(() => {
     mostrarDatosTabla();
     mostrarCarreras();
+    mostrarCarrerasAct();
     mostrarCargos();
     $('#guardar').on('click', () => {
-        $('#guardarUser').modal('show');
+    $('#carrera').parent().show();
+    $('#carrera').val('');
+    $('#carrera').removeClass('is-invalid is-valid');
+    $('#guardarUser').modal('show');
         let datos = getValuesInsertarUser();
         insertarUsuario(datos);
+        $('.regex').val('').removeClass('is-invalid is-valid');
+        $('.regex').each(function () {
+            if ($(this).is('select')) {
+                ValidadSelect(this);
+            }
+        });
         mostrarDatosTabla();
+        ValidarBtnInsert();
     });
-});
 
-$('.regex').on('keyup',function (){
-    ValidarClaveIdentificacion(this);
+    $('.regex').on('keyup',function (){
+        ValidarClaveIdentificacion(this);
+        ValidadNombreCompleto(this);
+        ValidarCorreo(this);
+        ValidarBtnInsert();
+    });
+    
+    $('.regex').on('change',function (){
+        ValidadSelect(this);
+        ValidarBtnInsert();
+    });
+
+    $('.regex').each(function () {
+        if ($(this).is('select')) {
+            ValidadSelect(this);
+        }
+    });
+
+    $('#cargo').on('change', function () {
+        ValidarCargo(this);
+    });
+    
+    ValidarBtnInsert();
+    ValidarBtnActualizar();
 });
 
 $(document).on('click','.btn-actualizar', (event) => {
@@ -27,6 +59,16 @@ $('#guardarActualizar').on('click', () => {
     let datos = getValuesUpdateUsuarios();
     actualizarUsuarios(datos);
     mostrarDatosTabla();
+
+    $('.regex').on('keyup',function (){
+        ValidarClaveIdentificacion(this);
+        ValidadNombreCompleto(this);
+        ValidarCorreo(this);
+        ValidarBtnInsert();
+    });
+    
+    ValidarBtnActualizar();
+
 });
 
 $(document).on('click', '.btn-eliminar', function () {

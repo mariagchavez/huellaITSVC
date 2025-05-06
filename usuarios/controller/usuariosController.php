@@ -13,6 +13,8 @@ class UsuariosController extends UsuariosModel{
         switch($this->peticion){
             case 'All_Carreras':
                 return $this->MostrarCarreras();
+            case 'All_CarrerasAct':
+                return $this->MostrarCarrerasAct();
             case 'All_Cargo':
                 return $this->MostrarCargos();
             case 'Insert_Usuario':
@@ -30,6 +32,16 @@ class UsuariosController extends UsuariosModel{
 
     public function MostrarCarreras(){
         $mostrar = $this->verCarreras();
+        if($mostrar["estado"]){
+            $respuesta = ["estado" => true, "MSG" => "Carreras encontradas", "Carreras" => $mostrar["Carreras"]];
+        }else{
+            $respuesta = ["estado" => false, "MSG" => "Error al encontrar las carreras", "Error" => $mostrar["Error captura"]];
+        }
+        return convertidorJSON($respuesta);
+    }
+
+    public function MostrarCarrerasAct(){
+        $mostrar = $this->verTodasLasCarreras();
         if($mostrar["estado"]){
             $respuesta = ["estado" => true, "MSG" => "Carreras encontradas", "Carreras" => $mostrar["Carreras"]];
         }else{

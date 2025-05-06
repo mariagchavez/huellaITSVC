@@ -25,22 +25,31 @@ class UsuariosModel extends DatabaseDB{
 
     public function mostrarUsuarios(){
         try{
-            $sql= "SELECT personas.clave_identificacion AS Matricula, personas.nombre AS Nombre, personas.ape_paterno AS ApellidoPA, personas.ape_materno AS ApellidoMA, 
-                personas.sexo AS Sexo, personas.correo AS Correo, carreras.clave_carrera AS Carrera, rol_usuario.descripcion AS Rol
-                FROM personas
-                INNER JOIN carreras ON personas.id_carrera = carreras.id_carrera
-                INNER JOIN rol_usuario ON personas.id_rol = rol_usuario.id_rol;";
+            $sql = "SELECT 
+                        personas.clave_identificacion AS Matricula, 
+                        personas.nombre AS Nombre, 
+                        personas.ape_paterno AS ApellidoPA, 
+                        personas.ape_materno AS ApellidoMA, 
+                        personas.sexo AS Sexo, 
+                        personas.correo AS Correo, 
+                        carreras.clave_carrera AS Carrera, 
+                        rol_usuario.descripcion AS Rol
+                    FROM personas
+                    LEFT JOIN carreras ON personas.id_carrera = carreras.id_carrera
+                    INNER JOIN rol_usuario ON personas.id_rol = rol_usuario.id_rol;";
+            
             $execute = $this->conexionDB()->query($sql);
             $respuesta = $execute->fetchAll(PDO::FETCH_ASSOC);
             return ["estado" => true, "Usuarios" => $respuesta];
-        }catch (Exception $e){
+        } catch (Exception $e) {
             return ["estado" => false, "Error captura" => $e->getMessage()];
         }
     }
-
+    
+    
     public function verCarreras(){
         try{
-            $sql = "SELECT clave_carrera, descripcion FROM carreras";
+            $sql = "SELECT clave_carrera, descripcion FROM carreras WHERE carreras.clave_carrera != 'Personal';";
             $execute = $this->conexionDB()->query($sql);
             $respuesta = $execute->fetchAll(PDO::FETCH_ASSOC);
             return ["estado" => true, "Carreras" => $respuesta];
@@ -48,6 +57,18 @@ class UsuariosModel extends DatabaseDB{
             return ["estado" => false, "Error captura" => $e->getMessage()];
         }
     }
+
+    public function verTodasLasCarreras(){ 
+        try {
+            $sql = "SELECT clave_carrera, descripcion FROM carreras";
+            $execute = $this->conexionDB()->query($sql);
+            $respuesta = $execute->fetchAll(PDO::FETCH_ASSOC);
+            return ["estado" => true, "Carreras" => $respuesta];
+        } catch(PDOException $e){
+            return ["estado" => false, "Error captura" => $e->getMessage()];
+        }
+    }
+    
 
     public function verCargos(){
         try{
@@ -84,8 +105,15 @@ class UsuariosModel extends DatabaseDB{
         try{
             $id_carrera = $this->obtenerIdCarreras();
             $id_cargo = $this->obtenerIdCargos();
-            if(!$id_carrera){
-                return ["estado" => false, "Error" => "Carrera no existente"];
+            if (!$id_carrera) {
+                $consulta = $this->conexionDB()->prepare("SELECT id_carrera FROM carreras WHERE clave_carrera = 'Personal' LIMIT 1;");
+                $consulta->execute();
+                $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+                if ($resultado) {
+                    $id_carrera = $resultado['id_carrera'];
+                } else {
+                    return ["estado" => false, "Error" => "No se encontró la carrera 'Personal'"];
+                }
             }
             if(!$id_cargo){
                 return ["estado" => false, "Error" => "Cargno no existente"];
@@ -102,7 +130,7 @@ class UsuariosModel extends DatabaseDB{
                 ':sexo' => $this->sexo,
                 ':correo' => $this->correo,
                 ':id_carrera' => $id_carrera,
-                'id_cargo' => $id_cargo
+                ':id_cargo' => $id_cargo
             ]);
 
             return ["estado" => true, "MSG" => "Usuario registrado exitosamente"];
