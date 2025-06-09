@@ -1,0 +1,79 @@
+:root {
+    --primary-color: #176bab;
+    --secondary-color: #f8f9fa;
+    --accent-color: #28a745;
+}
+
+body {
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-container {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 5vh;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-body {
+    padding: 30px;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-container img {
+    max-width: 150px;
+    height: auto;
+}
+
+.btn-login {
+    background-color: var(--primary-color);
+    border: none;
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #0d4d7a;
+}
+
+.form-control {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(23, 107, 171, 0.25);
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.input-group-text {
+    background-color: #e9ecef;
+    border: 1px solid #ddd;
+}

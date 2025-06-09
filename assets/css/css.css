@@ -26,14 +26,16 @@
     padding: 15px;
     border-radius: 10px;
 }
+.table-header-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px; 
+}
+
 .action-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+    flex-direction: row; 
+    gap: 10px; 
 }
 .etiquetado{
     color: #174D4D;

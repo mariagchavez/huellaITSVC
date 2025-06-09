@@ -14,7 +14,7 @@ export const validarLogin = (datos) => {
             mesajes(respuesta, false);
             if (respuesta.estado) { 
                 setTimeout(() => {
-                    window.location.href = "../../menus/menu.html";
+                    window.location.href = "../../asistencias/eventos/view/asistenciaEventos.html";
                 }, 2000);
             }
         },

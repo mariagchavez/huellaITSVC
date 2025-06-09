@@ -35,7 +35,7 @@ export const ValidarClaveIdentificacion = (input) => {
 }
 export const ValidadNombreCompleto = (input) =>{
     let inputV = input.value;
-    const validacion = /^[A-ZÑÁÉÍÓÚ][a-zñáéíóú]+(\s[A-ZÑÁÉÍÓÚ][a-zñáéíóú]+)*$/;
+    const validacion = /^[A-ZÑÁÉÍÓÚa-zñáéíóú]+(\s[A-ZÑÁÉÍÓÚa-zñáéíóú]+)*$/;    
     let msjerror='';
     if(!validacion.test(inputV)){
         msjerror = "El nombre no es valido";
